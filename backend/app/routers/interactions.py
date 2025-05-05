@@ -15,7 +15,7 @@ def create_interaction(interaction: InteractionCreate, session: Session = Depend
     user = session.get(User, interaction.user_id)
     if not user:
         raise HTTPException(status_code=404, detail="Usuário não encontrado.")
-    # Ver se já existe interação desse tipo para esse usuário e post
+    # Ver se já existe interação desse tipo para esse usuário e post :D
     existing = session.exec(
         select(Interaction).where(
             (Interaction.user_id == interaction.user_id) &

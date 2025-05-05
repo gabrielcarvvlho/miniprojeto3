@@ -101,7 +101,7 @@ def update_post(
     return post
 '''
 Uso do método PUT para atualizar um post que ja existe
-Recebe o id do post, os novos dados 
+Recebe o id do post, os novos dados :D
 verifica se o post é válido e se o usuário que vai editar é o autor
 '''
 
