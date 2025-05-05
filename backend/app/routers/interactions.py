@@ -7,15 +7,15 @@ router = APIRouter(prefix="/interactions")
 
 @router.post("/")
 def create_interaction(interaction: InteractionCreate, session: Session = Depends(get_session)):
-    # Verifica se o post existe
+    # Ver se o post existe
     post = session.get(Post, interaction.post_id)
     if not post:
         raise HTTPException(status_code=404, detail="Post não encontrado.")
-    # Verifica se o usuário existe
+    # Ver se o usuário existe
     user = session.get(User, interaction.user_id)
     if not user:
         raise HTTPException(status_code=404, detail="Usuário não encontrado.")
-    # Verifica se já existe interação desse tipo para esse usuário e post
+    # Ver se já existe interação desse tipo para esse usuário e post
     existing = session.exec(
         select(Interaction).where(
             (Interaction.user_id == interaction.user_id) &
